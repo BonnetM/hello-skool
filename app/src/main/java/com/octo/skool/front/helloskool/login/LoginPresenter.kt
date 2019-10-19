@@ -1,4 +1,4 @@
-package com.octo.skool.front.helloskool
+package com.octo.skool.front.helloskool.login
 
 interface LoginView {
     fun displaySuccess(login: String)
