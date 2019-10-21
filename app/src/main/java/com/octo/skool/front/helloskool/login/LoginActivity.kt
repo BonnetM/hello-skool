@@ -1,5 +1,6 @@
 package com.octo.skool.front.helloskool.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -15,11 +16,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
         super.onCreate(savedInstanceState)
         loginPresenter = LoginPresenter(
             LoginCheck(),
-            this
+            this,
+            LoginCache(getSharedPreferences("HELLO-SKOOL", Context.MODE_PRIVATE))
         )
         setContentView(R.layout.activity_login)
+        loginPresenter.load()
         submitButton.setOnClickListener {
-            loginPresenter.handleButtonClick(login.text.toString(), password.text.toString())
+            loginPresenter.handleButtonClick(login.text.toString(), password.text.toString(), saveLogin.isChecked)
         }
     }
 
@@ -31,4 +34,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun displayError() {
         Toast.makeText(this, "Erreur !", Toast.LENGTH_SHORT).show()
     }
+
+    override fun fillLogin(login: String) {
+        this.login.setText(login)
+    }
+
 }

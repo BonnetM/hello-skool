@@ -33,6 +33,14 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword" />
 
+    <CheckBox
+        android:id="@+id/saveLogin"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se souvenir de moi"
+        />
+
     <Button
         android:id="@+id/submitButton"
         style="@style/Widget.AppCompat.Button.Colored"
