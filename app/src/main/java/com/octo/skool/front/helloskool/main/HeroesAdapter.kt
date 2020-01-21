@@ -21,7 +21,7 @@ class HeroesAdapter : RecyclerView.Adapter<HeroViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         return LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.item_hero, null, false)
+            .inflate(R.layout.item_hero, parent, false)
             .let(::HeroViewHolder)
     }
 
